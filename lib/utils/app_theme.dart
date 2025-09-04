@@ -12,5 +12,7 @@ class AppTheme {
       showSelectedLabels: true,
       showUnselectedLabels: false,
     ),
+      textTheme: TextTheme(
+      )
   );
 }
