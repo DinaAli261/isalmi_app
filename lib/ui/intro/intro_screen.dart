@@ -140,7 +140,6 @@ class IntroScreenState extends State<IntroScreen> {
           ? const EdgeInsets.all(12.0)
           : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
       dotsDecorator: const DotsDecorator(
-        activeColor: AppColors.primaryColor,
         size: Size(10.0, 10.0),
         color: AppColors.gray,
         activeSize: Size(22.0, 10.0),
