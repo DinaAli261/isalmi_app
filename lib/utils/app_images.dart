@@ -10,4 +10,6 @@ class AppImages {
   static const String icontime = 'assets/images/icon_time.png';
   static const String iconradio = 'assets/images/icon_radio.png';
   static const String iconsebha = 'assets/images/icon_sebha.png';
+  static const String quranListImage = 'assets/images/sura_list_image.png';
+  static const String numberFrame = 'assets/images/number_frame.png';
 }
