@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/ui/home/tabs/quran/quran_data.dart';
 
-import '../../../../utils/app_images.dart';
-import '../../../../utils/app_text_style.dart';
+import '../../../../../utils/app_images.dart';
+import '../../../../../utils/app_text_style.dart';
 
 class SuraItem extends StatelessWidget {
   int index;
@@ -19,7 +19,7 @@ class SuraItem extends StatelessWidget {
           alignment: AlignmentGeometry.center,
           children: [
             Image.asset(AppImages.numberFrame),
-            Text('${index + 1}', style: AppTextStyle.boldWhite20),
+            Text('${index + 1}', style: AppTextStyle.boldWhite14),
           ],
         ),
         SizedBox(width: width * 0.05),
