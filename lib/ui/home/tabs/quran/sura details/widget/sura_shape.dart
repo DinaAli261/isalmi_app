@@ -27,15 +27,15 @@ class _SuraShapeState extends State<SuraShape> {
               padding: EdgeInsets.symmetric(horizontal: width * 0.06),
               child: Text(
                 widget.verses.join(),
-                textDirection: TextDirection.rtl,
                 style: AppTextStyle.boldPrimary20,
+                textDirection: TextDirection.rtl,
               ),
             ),
           )
         : Padding(
             padding: EdgeInsets.symmetric(horizontal: width * 0.06),
             child: ListView.separated(
-              itemCount: widget.verses.length - 2,
+              itemCount: widget.verses.length,
               itemBuilder: (context, index) {
                 final colored = selectedIndex == index;
                 return InkWell(
@@ -59,6 +59,7 @@ class _SuraShapeState extends State<SuraShape> {
                           ? AppTextStyle.boldBlack20
                           : AppTextStyle.boldPrimary20,
                       textAlign: TextAlign.center,
+                      textDirection: TextDirection.rtl,
                     ),
                   ),
                 );
