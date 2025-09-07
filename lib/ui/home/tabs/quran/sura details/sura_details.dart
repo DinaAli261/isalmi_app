@@ -79,7 +79,7 @@ class _SuraDetailsState extends State<SuraDetails> {
   Future<void> readSuraFile(int i) async {
     String sura = await rootBundle.loadString('assets/files/quran/$i.txt');
     verses = (sura.split('\n'));
-    for (int j = 0; j < verses.length - 2; j++) {
+    for (int j = 0; j < verses.length; j++) {
       verses[j] += '[${j + 1}] ';
     }
     setState(() {});
