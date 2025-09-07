@@ -13,6 +13,6 @@ class AppImages {
   static const String quranListImage = 'assets/images/sura_list_image.png';
   static const String numberFrame = 'assets/images/number_frame.png';
   static const String suraDetailPg = 'assets/images/sura_details_pg.png';
-  static const String sebha1 = 'assets/images/SebhaBody1.png';
+  static const String sebha1 = 'assets/images/SebhaBody 1.png';
   static const String sebha2 = 'assets/images/sebha_body2.png';
 }
