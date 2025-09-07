@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/ui/home/tabs/quran/sura_item.dart';
+import 'package:islami_app/ui/home/tabs/quran/widget/sura_item.dart';
 import 'package:islami_app/utils/app_colors.dart';
 import 'package:islami_app/utils/app_images.dart';
+import 'package:islami_app/utils/app_routes.dart';
 import 'package:islami_app/utils/app_text_style.dart';
 
 class QuranTab extends StatelessWidget {
@@ -53,7 +54,7 @@ class QuranTab extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      flex: 4,
+                      flex: 5,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -65,7 +66,7 @@ class QuranTab extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                      flex: 5,
+                      flex: 6,
                       child: Image.asset(AppImages.quranListImage),
                     ),
                   ],
@@ -82,7 +83,13 @@ class QuranTab extends StatelessWidget {
         Expanded(
           child: ListView.separated(
             itemBuilder: (context, index) {
-              return SuraItem(index: index);
+              return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed(
+                        arguments: index,
+                        AppRoutes.suraDetailsName);
+                  },
+                  child: SuraItem(index: index));
             },
             separatorBuilder: (context, index) => Divider(
               thickness: 1,
