@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/src/painting/text_style.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_app/utils/app_colors.dart';
 
 class AppTextStyle {
@@ -50,6 +49,12 @@ class AppTextStyle {
   static final TextStyle boldBlack20 = TextStyle(
     color: AppColors.black,
     fontSize: 20,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'jannaLt',
+  );
+  static final TextStyle boldWhite36 = TextStyle(
+    color: AppColors.white,
+    fontSize: 36,
     fontWeight: FontWeight.bold,
     fontFamily: 'jannaLt',
   );
