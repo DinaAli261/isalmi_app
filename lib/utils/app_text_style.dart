@@ -52,6 +52,12 @@ class AppTextStyle {
     fontWeight: FontWeight.bold,
     fontFamily: 'jannaLt',
   );
+  static final TextStyle boldBlack12 = TextStyle(
+    color: AppColors.black,
+    fontSize: 12,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'jannaLt',
+  );
   static final TextStyle boldWhite36 = TextStyle(
     color: AppColors.white,
     fontSize: 36,
