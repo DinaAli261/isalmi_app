@@ -15,4 +15,6 @@ class AppImages {
   static const String suraDetailPg = 'assets/images/sura_details_pg.png';
   static const String sebha1 = 'assets/images/SebhaBody 1.png';
   static const String sebha2 = 'assets/images/sebha_body2.png';
+  static const String radioMosque = 'assets/images/radioMosque.png';
+  static const String radioSoundWave = 'assets/images/radioSoundWave.png';
 }
