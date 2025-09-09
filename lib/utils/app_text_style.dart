@@ -58,9 +58,39 @@ class AppTextStyle {
     fontWeight: FontWeight.bold,
     fontFamily: 'jannaLt',
   );
+  static final TextStyle boldWhite32 = TextStyle(
+    color: AppColors.white,
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'jannaLt',
+  );
   static final TextStyle boldWhite36 = TextStyle(
     color: AppColors.white,
     fontSize: 36,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'jannaLt',
+  );
+  static final TextStyle boldBlack7120 = TextStyle(
+    color: AppColors.black71,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'jannaLt',
+  );
+  static final TextStyle boldBlack9020 = TextStyle(
+    color: AppColors.black90,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'jannaLt',
+  );
+  static final TextStyle boldBlack7116 = TextStyle(
+    color: AppColors.black71,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'jannaLt',
+  );
+  static final TextStyle boldBlack9016 = TextStyle(
+    color: AppColors.black90,
+    fontSize: 16,
     fontWeight: FontWeight.bold,
     fontFamily: 'jannaLt',
   );
