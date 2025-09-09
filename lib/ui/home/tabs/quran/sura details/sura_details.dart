@@ -20,7 +20,6 @@ class _SuraDetailsState extends State<SuraDetails> {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     int index = ModalRoute.of(context)!.settings.arguments as int;
     if (verses.isEmpty) {
       readSuraFile(index + 1);
