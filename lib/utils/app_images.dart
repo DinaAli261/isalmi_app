@@ -17,4 +17,6 @@ class AppImages {
   static const String sebha2 = 'assets/images/sebha_body2.png';
   static const String radioMosque = 'assets/images/radioMosque.png';
   static const String radioSoundWave = 'assets/images/radioSoundWave.png';
+  static const String prayTime = 'assets/images/prayTime.png';
+  static const String volumeCross = 'assets/images/volumeCross.png';
 }

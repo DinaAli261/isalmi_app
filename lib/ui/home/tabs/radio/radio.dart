@@ -88,8 +88,11 @@ class _RadioTabsState extends State<RadioTabs> {
                                   },
                                   child: Icon(Icons.play_arrow_rounded,
                                     size: width * 0.10,)),
+
                               (isSelected) ? Stack(
                                 alignment: AlignmentGeometry.centerRight,
+
+                                ///ملحوظه حاولت احط الايقون هتلاقيها  بس مش بتشتغل مش عارفه ليه AppImages.volumeCross
                                 children: [
                                   Icon(Icons.volume_mute_rounded,
                                       size: width * 0.06),
