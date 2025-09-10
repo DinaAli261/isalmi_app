@@ -18,6 +18,7 @@ class QuranTab extends StatelessWidget {
         SizedBox(height: height * 0.02),
         TextField(
           cursorColor: AppColors.primaryColor,
+          style: AppTextStyle.boldWhite16,
           decoration: InputDecoration(
             hintText: 'Sura Name',
             hintStyle: AppTextStyle.boldWhite16,

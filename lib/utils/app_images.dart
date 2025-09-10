@@ -19,4 +19,6 @@ class AppImages {
   static const String radioSoundWave = 'assets/images/radioSoundWave.png';
   static const String prayTime = 'assets/images/prayTime.png';
   static const String volumeCross = 'assets/images/volumeCross.png';
+  static const String evining = 'assets/images/evining.png';
+  static const String morning = 'assets/images/morning.png';
 }
