@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/utils/app_colors.dart';
 import 'package:islami_app/utils/app_images.dart';
@@ -24,6 +25,7 @@ class _TimeTabState extends State<TimeTab> {
         .size
         .width;
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Container(
@@ -50,38 +52,43 @@ class _TimeTabState extends State<TimeTab> {
                   ),
                   Text('09 Muh,\n    1446', style: AppTextStyle.boldWhite16,),
                 ],
-              ),
-
-
-              Row(
-                children: [
-                  Container(
-                    width: (isFocused) ? width * 0.24 : width * 0.2,
-                    height: (isFocused) ? height * 0.13 : height * 0.11,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          colors: [AppColors.black, AppColors.primaryGardient,],
-                          begin: AlignmentGeometry.topLeft,
-                          end: AlignmentGeometry.centerRight),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('ASR', style: (isFocused)
-                            ? AppTextStyle.boldWhite16
-                            : AppTextStyle.boldWhite14,),
-                        Text('04:38', style: (isFocused)
-                            ? AppTextStyle.boldWhite32
-                            : AppTextStyle.boldWhite20,),
-                        Text('PM', style: (isFocused)
-                            ? AppTextStyle.boldWhite16
-                            : AppTextStyle.boldWhite14,),
-                      ],
-                    ),
-                  ),
-
-                ],
+              ), CarouselSlider(
+                options: CarouselOptions(
+                    enableInfiniteScroll: false,
+                    enlargeCenterPage: true,
+                    aspectRatio: 104 / 128,
+                    enlargeFactor: 0.19,
+                    viewportFraction: 0.28,
+                    enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                    initialPage: 2,
+                    height: height * 0.13),
+                items: [1, 2, 3, 4, 5].map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: width * 0.24,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              colors: [
+                                AppColors.black,
+                                AppColors.primaryGardient,
+                              ],
+                              begin: AlignmentGeometry.topLeft,
+                              end: AlignmentGeometry.centerRight),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text('ASR', style: AppTextStyle.boldWhite16),
+                            Text('04:38', style: AppTextStyle.boldWhite32),
+                            Text('PM', style: AppTextStyle.boldWhite16),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                }).toList(),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -96,6 +103,13 @@ class _TimeTabState extends State<TimeTab> {
             ],
           ),
         ),
+        Row(
+          children: [
+            Expanded(child: Image.asset(AppImages.evining)),
+            SizedBox(width: width * 0.046,),
+            Expanded(child: Image.asset(AppImages.morning)),
+          ],
+        )
       ],
     );
   }
