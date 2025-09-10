@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/providers/most_recent_provider.dart';
 import 'package:islami_app/ui/home/tabs/quran/quran_data.dart';
 import 'package:islami_app/ui/home/tabs/quran/sura%20details/widget/sura_shape.dart';
 import 'package:islami_app/utils/app_colors.dart';
 import 'package:islami_app/utils/app_images.dart';
 import 'package:islami_app/utils/app_text_style.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetails extends StatefulWidget {
   const SuraDetails({super.key});
@@ -14,12 +16,21 @@ class SuraDetails extends StatefulWidget {
 }
 
 class _SuraDetailsState extends State<SuraDetails> {
+  late MostRecentProvider mostRecentProvider;
   int shapeNumber = 1;
   List<String> verses = [];
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    mostRecentProvider.readMostRecentList();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
+    mostRecentProvider = Provider.of<MostRecentProvider>(context);
     int index = ModalRoute.of(context)!.settings.arguments as int;
     if (verses.isEmpty) {
       readSuraFile(index + 1);
