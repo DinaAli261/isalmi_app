@@ -38,7 +38,6 @@ class _QuranTabState extends State<QuranTab> {
           },
           style: AppTextStyle.boldWhite16,
           cursorColor: AppColors.primaryColor,
-          style: AppTextStyle.boldWhite16,
           decoration: InputDecoration(
             hintText: 'Sura Name',
             hintStyle: AppTextStyle.boldWhite16,
