@@ -1,22 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/ui/home/tabs/quran/quran_data.dart';
+import 'package:islami_app/ui/home/tabs/quran/widget/most_recently_widget.dart';
 import 'package:islami_app/ui/home/tabs/quran/widget/sura_item.dart';
 import 'package:islami_app/utils/app_colors.dart';
 import 'package:islami_app/utils/app_images.dart';
 import 'package:islami_app/utils/app_routes.dart';
 import 'package:islami_app/utils/app_text_style.dart';
+import 'package:islami_app/utils/shared_prefs_helper.dart';
 
-class QuranTab extends StatelessWidget {
-  const QuranTab({super.key});
+class QuranTab extends StatefulWidget {
+  QuranTab({super.key});
+
+  @override
+  State<QuranTab> createState() => _QuranTabState();
+}
+
+class _QuranTabState extends State<QuranTab> {
+  List<int> filteredList = List.generate(114, (index) => index,);
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery
+        .of(context)
+        .size
+        .height;
+    var width = MediaQuery
+        .of(context)
+        .size
+        .width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: height * 0.02),
         TextField(
+          onChanged: (newText) {
+            searchByNewText(newText);
+          },
+          style: AppTextStyle.boldWhite16,
           cursorColor: AppColors.primaryColor,
           style: AppTextStyle.boldWhite16,
           decoration: InputDecoration(
@@ -30,78 +50,51 @@ class QuranTab extends StatelessWidget {
             focusedBorder: createBorderStyle(),
           ),
         ),
-        SizedBox(height: height * 0.02),
-        Text('Most Recently', style: AppTextStyle.boldWhite16),
-        SizedBox(height: height * 0.008),
-        SizedBox(
-          width: double.infinity,
-          height: height * 0.16,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return Container(
-                padding: EdgeInsets.only(
-                  left: width * 0.03,
-                  top: 0.007 * height,
-                  bottom: 0.007 * height,
-                  right: width * 0.02,
-                ),
-                width: width * 0.65,
-                decoration: BoxDecoration(
-                  color: AppColors.primaryColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 5,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text('Al-Anbiya', style: AppTextStyle.boldBlack24),
-                          Text('الأنبياء', style: AppTextStyle.boldBlack24),
-                          Text('112 Verses', style: AppTextStyle.boldBlack14),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      flex: 6,
-                      child: Image.asset(AppImages.quranListImage),
-                    ),
-                  ],
-                ),
-              );
-            },
-            separatorBuilder: (context, index) => SizedBox(width: width * 0.02),
-            itemCount: 20,
-          ),
-        ),
+        MostRecentlyWidget(),
         SizedBox(height: height * 0.01),
         Text('Suras List', style: AppTextStyle.boldWhite16),
         SizedBox(height: height * 0.01),
         Expanded(
           child: ListView.separated(
             itemBuilder: (context, index) {
-              return GestureDetector(
+              return InkWell(
                   onTap: () {
+                    saveLastSuraIndex(filteredList[index]);
                     Navigator.of(context).pushNamed(
-                        arguments: index,
+                        arguments: filteredList[index],
                         AppRoutes.suraDetailsName);
                   },
-                  child: SuraItem(index: index));
+                  child: SuraItem(index: filteredList[index]));
             },
-            separatorBuilder: (context, index) => Divider(
-              thickness: 1,
-              indent: 0.1 * width,
-              endIndent: 0.09 * width,
-            ),
-            itemCount: 114,
+            separatorBuilder: (context, index) =>
+                Divider(
+                  thickness: 1,
+                  indent: 0.1 * width,
+                  endIndent: 0.09 * width,
+                ),
+            itemCount: filteredList.length,
           ),
         ),
       ],
     );
+  }
+
+  void searchByNewText(String newText) {
+    List<int> searchResultList = [];
+    for (int i = 0; i < 114; i++) {
+      if (QuranData.englishQuranSuras[i].toLowerCase().contains(
+          newText.toLowerCase())) {
+        searchResultList.add(i);
+      }
+      if (QuranData.arabicQuranSuras[i].toLowerCase().contains(
+          newText.toLowerCase())) {
+        searchResultList.add(i);
+      }
+    }
+    filteredList = searchResultList;
+    setState(() {
+
+    });
   }
 }
 
