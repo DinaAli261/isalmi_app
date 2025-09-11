@@ -12,6 +12,8 @@ class TimeTab extends StatefulWidget {
 }
 
 class _TimeTabState extends State<TimeTab> {
+  List<String> prays = ['Sunrise', 'Dhuhr', 'ASR', 'Maghrib', 'Isha'];
+  List<String> times = ['01:04', '01:01', '04:38', '07:57', '09:57'];
   int selectedIndex = 0;
   bool isFocused = false;
   @override
@@ -62,7 +64,7 @@ class _TimeTabState extends State<TimeTab> {
                     enlargeStrategy: CenterPageEnlargeStrategy.scale,
                     initialPage: 2,
                     height: height * 0.13),
-                items: [1, 2, 3, 4, 5].map((i) {
+                items: [0, 1, 2, 3, 4].map((i) {
                   return Builder(
                     builder: (BuildContext context) {
                       return Container(
@@ -80,8 +82,8 @@ class _TimeTabState extends State<TimeTab> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Text('ASR', style: AppTextStyle.boldWhite16),
-                            Text('04:38', style: AppTextStyle.boldWhite32),
+                            Text(prays[i], style: AppTextStyle.boldWhite16),
+                            Text(times[i], style: AppTextStyle.boldWhite32),
                             Text('PM', style: AppTextStyle.boldWhite16),
                           ],
                         ),
