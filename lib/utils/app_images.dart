@@ -21,4 +21,6 @@ class AppImages {
   static const String volumeCross = 'assets/images/volumeCross.png';
   static const String evining = 'assets/images/evining.png';
   static const String morning = 'assets/images/morning.png';
+  static const String hadethCardPg = 'assets/images/hadeth_cardPg.png';
+
 }

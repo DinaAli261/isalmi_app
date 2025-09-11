@@ -12,6 +12,12 @@ class RadioTabs extends StatefulWidget {
 }
 
 class _RadioTabsState extends State<RadioTabs> {
+  List<String> shekihName = [
+    'Radio Ibrahim Al-Akdar',
+    'Radio Al-Qaria Yassen',
+    'Radio Ahmed Al-trabulsi',
+    'Radio Addokali Mohammad Alalim'
+  ];
   bool isSelected = false;
   int selectedIndex = -1;
   
@@ -69,7 +75,7 @@ class _RadioTabsState extends State<RadioTabs> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text('Radio Ibrahim Al-Akdar',
+                          Text(shekihName[index],
                             style: AppTextStyle.boldBlack20,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -111,7 +117,7 @@ class _RadioTabsState extends State<RadioTabs> {
               },
               separatorBuilder: (context, index) =>
                   SizedBox(height: height * 0.017,),
-              itemCount: 5),
+              itemCount: 4),
         )
       ],
     );
